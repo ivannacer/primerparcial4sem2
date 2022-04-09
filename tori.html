@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tori</title>
+     <script src='https://www.x3dom.org/x3dom/release/x3dom-full.js'></script>
+    <link rel='stylesheet' href='https://www.x3dom.org/x3dom/release/x3dom.css'>
+    <style>
+        body {
+            background-color: rgb(243, 194, 215);
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        .fondo {
+            width: 100vw;
+            height: 100vh;
+}
+</style>
+</head>
+<body>
+    <h1>TORI</h1>
+    
+  <X3D class="fondo">
+<Scene>
+  <Transform DEF="plantaBaja">
+    <Transform DEF='Fila'> <!-- abre Fila 1-->
+        <Transform DEF='arco'>
+        <inline DEF="Arco" url="tori.x3d"></inline>
+        </Transform>
+        
+        <Transform translation="0 0 0">
+        <shape USE="arco"/>
+        </Transform>
+
+        <!-- Copias -->
+
+        <Transform rotation="0 1 0 -1.57" translation="20 0 15">
+            <Shape USE= "Arco"></Shape>
+        </Transform>
+
+        <Transform rotation="0 1 0 -1.57" translation="-20 0 15">
+          <Shape USE= "Arco"></Shape>
+      </Transform>
+        
+      <Transform rotation="1 0 0 -1.57" translation="-1 -9 10 ">
+        <Shape>
+          <Appearance>
+            <ImageTexture url="texturas/pasto1.webp"></ImageTexture>
+            <TextureTransform scale="5, 5 "></TextureTransform>
+          </Appearance>
+          <Box size="55 55 1"></Box>
+        </Shape>
+    </Transform>
+
+    <!-- paredes -->
+
+    <Transform DEF="paredes">
+      <Transform rotation="0 0 0 0" translation="0 16 -17">
+          <Shape>
+              <Appearance>
+                  <ImageTexture url="texturas/arboles.webp"></ImageTexture>
+                  <TextureTransform scale="1, 1"></TextureTransform>
+              </Appearance>
+              <Box size="50 50 1"></Box>
+          </Shape>
+      </Transform>
+  </Transform>
+  
+  
+    <!--Der-->
+    
+    <Transform translation="8 0 8" rotation="0 15 0 -1.57">
+      <Transform USE="paredes"></Transform>
+    </Transform>
+    <!--Fondo-->
+    
+    <Transform translation="-42 0 8" rotation="0 15 0 -1.57">
+      <Transform USE="paredes"></Transform>
+    </Transform>
+    <!--Frente-->
+        
+        
+    </Transform> <!-- cierre de Fila  1-->
+
+    
+</Transform>
+
+
+
+</Scene>
+  </X3D>  
+  
+</body>
+</html>

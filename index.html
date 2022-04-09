@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primer parcial</title>
+    <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'> </script> 
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        body{
+            background: white;
+            color: white;
+            font-family: sans-serif;
+        }
+        .fondo{
+            width: 60vw;
+            height: 60vh;
+            margin: auto; 
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div>
+        <img src="./texturas/fondo3.png" alt="" width="1400px" height="auto">
+    </div>
+
+    <div>
+        <h1>Conoce todo sobre la cultura japonesa </h1>
+    </div>
+
+<x3d class="fondo">
+    <Scene>
+        <!-- Animación de rotación para el sistema solar -->
+    <Transform DEF="SSolar">
+        <!-- SOL -->
+        <Shape>
+            <Appearance>
+                <!-- <Material diffuseColor='1 1 0'/> -->
+                <imageTexture url="texturas/cdaruma3.jpg"/>
+            </Appearance>
+            <Sphere></Sphere>
+        </Shape>
+        <!-- Mercurio -->
+        <transform translation="-5 0 0" scale="1 1 1.4">
+            <inline url="mercurio.x3d"></inline>
+        </transform>
+       
+        <!-- Mercurio -->
+        <transform translation="5 0 0" scale="1 1 1.4">
+            <inline url="jupiter.x3d"></inline>
+        </transform>
+
+        </transform>
+         <!-- Parámetros de animación: sensor de tiempo y cuál eje se animará -->
+			<timeSensor DEF='timerTL' cycleInterval='50' loop='true'></timeSensor>
+			<orientationInterpolator DEF='rotatorTL' key='
+            0 
+            0.5 
+            1' keyValue='
+            0 1 0 0 
+            0 1 0 3.14 
+            0 1 0 6.28'>
+			</orientationInterpolator>
+    </Transform> <!-- Cierre SSolar -->
+    <!-- ROUTE canaliza el sensor de tiempo y la rotación al transform -->
+			<ROUTE fromNode='timerTL' fromField='fraction_changed' toNode='rotatorTL' toField='set_fraction'></ROUTE>
+			<ROUTE fromNode='rotatorTL' fromField='value_changed' toNode='SSolar' toField='set_rotation'></ROUTE>
+
+    </Scene>
+</x3d>
+<div align="center">
+    <img src="./texturas/ctexto.jpg" alt="" width="800px" height="auto" >
+</div>
+
+<div>
+    <h1>Conoce los famosos 'TORI' </h1>
+</div>
+
+<div align="center">
+    <img src="./texturas/imagentori.jpg" alt="" width="1200px" height="auto" >
+</div>
+
+<h1>Conoce como es una estructura del 'Tori'</h1>
+
+<form method="get" action="./tori.html" align="center">
+
+    <button type="submit">
+    
+        <b> Tori</b><br />
+    
+        Conce la estructura
+    
+    </button>
+    
+</form>
+
+<form method="get" action="./templo.html" align="center">
+
+    <button type="submit">
+    
+        <b> Templo</b><br />
+    
+        Conce la estructura
+    
+    </button>
+    
+</form>
+
+<div>
+    <h1>¿Sabes sobre las casas japonesas? </h1>
+</div>
+
+<div align="center">
+    <img src="./texturas/casas.jpg" alt="" width="1200px" height="auto" >
+</div>
+
+<form method="get" action="./templo2.html" align="center">
+
+    <button type="submit">
+    
+        <b> Casa</b><br />
+    
+        Conce una casa japonesa
+    
+    </button>
+    
+</form>
+
+<h1>
+    ¿Quién es ese pokemon?
+</h1>
+
+<x3d class="fondo">
+    <Scene>
+        <!-- Animación de rotación para el Sistema Solar -->
+        <transform DEF="pokemon" rotación="0 0 1 1">
+        <Shape>
+            <Appearance>
+                <imageTexture url='texturas/pokemon.jpeg'/>
+            </Appearance>
+            <Sphere/>
+        </Shape>
+
+        <!-- nave -->
+        <transform translation='1 0 3' scale='1 1 1'>
+            <inline url='pokemon.x3d'></inline>
+        </transform>
+
+        <!-- Parámetros de animación: sensor de tiempo y cuál eje se animará -->
+			<timeSensor DEF='timerTL' cycleInterval='30' loop='true'></timeSensor>
+			<orientationInterpolator DEF='rotatorTL' key='
+            0 
+            0 
+            1' keyValue='
+            0 1 0 0 
+            0 1 0 3.14 
+            0 1 0 10'>
+			</orientationInterpolator>
+
+    </transform> <!--cieere del sol-->
+     <!-- ROUTE canaliza el sensor de tiempo y la rotación al transform -->
+			<ROUTE fromNode='timerTL' fromField='fraction_changed' toNode='rotatorTL' toField='set_fraction'></ROUTE>
+			<ROUTE fromNode='rotatorTL' fromField='value_changed' toNode='pokemon' toField='set_rotation'></ROUTE>
+    </Scene>
+</x3d>
+
+<div align="center">
+    <img src="./texturas/pokemon.jpg" alt="" width="1200px" height="auto" >
+</div>
+
+</body>
+</html>

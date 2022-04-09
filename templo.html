@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Templo</title>
+     <script src='https://www.x3dom.org/x3dom/release/x3dom-full.js'></script>
+    <link rel='stylesheet' href='https://www.x3dom.org/x3dom/release/x3dom.css'>
+    <style>
+        body {
+            background-color: rgb(243, 194, 215);
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+        }
+
+        .fondo {
+            width: 100vw;
+            height: 100vh;
+}
+</style>
+</head>
+<body>
+    <h1>TEMPLO</h1>
+    
+  <X3D class="fondo">
+<Scene>
+  <Transform DEF="plantaBaja">
+    <Transform DEF='Fila'> <!-- abre Fila 1-->
+        <Transform DEF='templo'>
+        <inline DEF="Templo" url="templo1.x3d"></inline>
+        </Transform>
+  </Transform>
+
+
+  <Transform rotation="1 0 0 -1.57" translation="-1 2 10 ">
+    <Shape>
+      <Appearance>
+        <ImageTexture url="texturas/pasto1.webp"></ImageTexture>
+        <TextureTransform scale="5, 5 "></TextureTransform>
+      </Appearance>
+      <Box size="10000 10000 1"></Box>
+    </Shape>
+  </Transform>  
+
+ 
+
+  
+    
+  <!-- Fondo con colores para cielo y tierra -->
+<Background
+skyColor="0.21 0.18 0.66,
+            0.2 0.44 0.85,
+            0.51 0.81 0.95,
+            0.77 0.80 0.82"
+skyAngle="0.5 1.5 1.57"
+groundColor="0.6 0.7 0.1,
+                0.4 0.7 0.2,
+                0.1 0.6 0.1,
+                0 0.3 01"
+groundAngle="0.8 1.5 1.57">
+</Background>
+        
+
+       
+</Transform>
+
+
+
+</Scene>
+  </X3D>  
+  
+</body>
+</html>
